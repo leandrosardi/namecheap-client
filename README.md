@@ -1,7 +1,5 @@
 ![Gem version](https://img.shields.io/gem/v/namecheap-client) ![Gem downloads](https://img.shields.io/gem/dt/namecheap-client)
 
-# namecheap-client
-
 # Namecheap Ruby Client
 
 A simple Ruby client library for interacting with the [Namecheap API](https://www.namecheap.com/support/api/intro/), allowing you to manage your domains programmatically.
