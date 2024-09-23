@@ -1,3 +1,5 @@
+![Gem version](https://img.shields.io/gem/v/namecheap-client) ![Gem downloads](https://img.shields.io/gem/dt/namecheap-client)
+
 # namecheap-client
 
 # Namecheap Ruby Client
