@@ -7,7 +7,7 @@ begin
     while i<250
       i += 1
       print "#{i}... "
-      sleep 1
+      sleep 2
       CLIENT.add_dns_record('123leadsnow.com', 'A', "many#{i}.123leadsnow.com", "84.247.141.#{i}")
       puts "DNS record added successfully."  
     end
