@@ -134,17 +134,24 @@ class NamecheapClient
   end  
 
   def parse_dns_records(xml_response)
+    namespaces = { 'nc' => 'http://api.namecheap.com/xml.response' }
     records = []
-    xml_response.xpath('//DomainDNSGetHostsResult/host').each do |host_node|
+    xml_response.xpath('//nc:DomainDNSGetHostsResult/nc:host', namespaces).each do |host_node|
       records << {
-        'Type' => host_node['Type'],
+        'HostId' => host_node['HostId'],
         'Name' => host_node['Name'],
+        'Type' => host_node['Type'],
         'Address' => host_node['Address'],
-        'TTL' => host_node['TTL']
+        'MXPref' => host_node['MXPref'],
+        'TTL' => host_node['TTL'],
+        'AssociatedAppTitle' => host_node['AssociatedAppTitle'],
+        'FriendlyName' => host_node['FriendlyName'],
+        'IsActive' => host_node['IsActive'],
+        'IsDDNSEnabled' => host_node['IsDDNSEnabled']
       }
     end
     records
-  end
+  end  
 
   def parse_errors(xml_response)
     errors = xml_response.xpath('//Errors/Error').map(&:text)
