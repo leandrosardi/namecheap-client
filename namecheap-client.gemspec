@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'namecheap-client'
-  s.version     = '0.1.1'
+  s.version     = '0.1.2'
   s.date        = '2024-09-23'
   s.summary     = "A simple Ruby client library for interacting with the [Namecheap API](https://www.namecheap.com/support/api/intro/), allowing you to manage your domains programmatically."
   s.description = "A simple Ruby client library for interacting with the [Namecheap API](https://www.namecheap.com/support/api/intro/), allowing you to manage your domains programmatically."

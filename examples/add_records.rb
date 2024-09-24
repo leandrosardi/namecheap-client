@@ -3,7 +3,7 @@ require_relative './config'
 
 # Add a DNS record
 begin
-    i = 0
+    i = 54
     while i<250
       i += 1
       print "#{i}... "
