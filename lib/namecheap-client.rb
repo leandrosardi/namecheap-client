@@ -154,7 +154,16 @@ class NamecheapClient
   end  
 
   def parse_errors(xml_response)
-    errors = xml_response.xpath('//Errors/Error').map(&:text)
+    # Parse the XML if it's a string; otherwise, assume it's already a Nokogiri document
+    doc = xml_response.is_a?(String) ? Nokogiri::XML(xml_response) : xml_response
+    
+    # Define the namespace with a prefix (e.g., 'nc' for Namecheap)
+    namespaces = { 'nc' => 'http://api.namecheap.com/xml.response' }
+    
+    # Use the namespace prefix in your XPath query
+    errors = doc.xpath('//nc:Errors/nc:Error', namespaces).map(&:text)
+    
+    # Join the error messages with a semicolon and space
     errors.join('; ')
   end
 
